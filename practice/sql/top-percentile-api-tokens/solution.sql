@@ -16,16 +16,15 @@ with token_qualifiyed as (
 SELECT
   token_id,
   scope,
-  SUM(requests) AS requests,
+  requests AS requests,
  
     PERCENT_RANK() OVER (
       PARTITION BY scope
-      ORDER BY SUM(requests)
+      ORDER BY requests
     )
    
   AS prct_rank
-FROM api_tokens
-GROUP BY token_id, scope)
+FROM api_tokens)
 
 
 
