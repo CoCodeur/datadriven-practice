@@ -30,4 +30,5 @@ GROUP BY token_id, scope)
 select * from token_qualifiyed
 
 where percentile_rank >= 0.95
-order by percentile_rank desc, scope, token_id asc
+--order by percentile_rank desc, scope, token_id asc
+order by scope asc, percentile_rank desc, token_id asc
