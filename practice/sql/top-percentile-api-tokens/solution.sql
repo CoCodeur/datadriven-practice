@@ -10,21 +10,21 @@ l'identifiant est le plus faible doit apparaître en premier.
 
 */
 
---create index idx_token_scope on api_tokens (token_id,scope);
 
 with token_qualifiyed as (
 SELECT
   token_id,
   scope,
-  requests AS requests,
+  SUM(requests) AS requests,
  
     PERCENT_RANK() OVER (
       PARTITION BY scope
-      ORDER BY requests
+      ORDER BY SUM(requests)
     )
    
   AS prct_rank
-FROM api_tokens)
+FROM api_tokens
+GROUP BY token_id, scope)
 
 
 
