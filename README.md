@@ -8,6 +8,7 @@ Scored work from [DataDriven](https://datadriven.io/u/great_oak_1727), committed
 
 | Problem | Domain | Difficulty | Solved |
 |---|---|---|---|
+| [Top Percentile API Tokens](./practice/sql/top-percentile-api-tokens) | SQL | Hard | 2026-11-02 |
 | [Age of Discovery](./practice/sql/age-of-discovery) | SQL | Hard | 2026-10-30 |
 
 <!-- datadriven:index:end -->
