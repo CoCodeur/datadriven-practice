@@ -15,20 +15,19 @@ SELECT
   token_id,
   scope,
   SUM(requests) AS requests,
-  ROUND(
+ 
     PERCENT_RANK() OVER (
       PARTITION BY scope
       ORDER BY SUM(requests)
-    ),
-    2
-  ) AS percentile_rank
+    )
+   
+  AS prct_rank
 FROM api_tokens
 GROUP BY token_id, scope)
 
 
 
-select * from token_qualifiyed
+select token_id, scope, requests, round(prct_rank,2) as percentile_rank from token_qualifiyed
 
-where percentile_rank >= 0.95
---order by percentile_rank desc, scope, token_id asc
+where prct_rank >= 0.950
 order by scope asc, percentile_rank desc, token_id asc
