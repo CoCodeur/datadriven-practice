@@ -22,3 +22,4 @@ from
     user_with_query
 
 group by age_bucket
+order by age_bucket asc
