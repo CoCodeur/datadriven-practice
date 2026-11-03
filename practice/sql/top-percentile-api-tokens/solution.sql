@@ -25,10 +25,10 @@ SELECT
   AS prct_rank
 FROM api_tokens
 GROUP BY token_id, scope)
-
-
-
+ 
+ 
+ 
 select token_id, scope, requests, round(prct_rank,2) as percentile_rank from token_qualifiyed
-
+ 
 where prct_rank >= 0.950
 order by scope asc, prct_rank desc, token_id asc
